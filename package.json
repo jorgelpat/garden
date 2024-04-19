@@ -1,0 +1,15 @@
+{
+  "name": "infusion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.js",
+  "scripts": {
+    "dataFireBill": "json-server js/db/bill.json -p 5600"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "1.0.0-alpha.23"
+  }
+}
