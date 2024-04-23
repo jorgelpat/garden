@@ -9,8 +9,6 @@ export const getAllSpainClients = async()=>{
             nombre : val.client_name,
             pais : val.country
         })
-            
-        
     })
     return dataUpdate;
 }
