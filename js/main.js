@@ -2,6 +2,7 @@ import {getAllOfficesCodeAndCity,getAllOficesFromSpainCityAndMovil}from "./modul
 import {getAllEmployeesWithBossAndCodeSeven,getBossFullNameAndEmail,getAllFullNameNoSale} from "./module/employees.js";
 import {getAllSpainClients} from "./module/clients.js";
 import {getAllStatus} from "./module/requests.js";
+import {getAll2008Payments} from "./module/payments.js";
 
 
-console.log(await getAllStatus());
+console.log(await getAll2008Payments());
