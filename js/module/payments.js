@@ -16,14 +16,15 @@
 export const getAll2008Payments = async() => {
     let res = await fetch("http://localhost:5505/requests")
     let data = await res.json()
-    let clients2008 = data.filter(request => request.date_payment.startsWith("2008"))
-    let dataUpdate = new Set()
-    clients2008.forEach(client => {
-        let {code_client} = client
-        dataUpdate.add(code_client)
+    let dataUpdate =[]
+    data.filter(val=>{
+        if(val.date_payment.includes("2008")){
+            dataUpdate.push({
+                code: val.code_client
+            })
+        }
     })
-    dataUpdate = Array.from(dataUpdate)
-    return dataUpdate
+    return dataUpdate;
 }
 
 
