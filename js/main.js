@@ -12,7 +12,7 @@ import {getAllGammaOrnamentalesProduct} from "./module/products.js"
 // console.log(await getAllFullNameNoSale());
 // console.log(await getAllSpainClients());
 // console.log(await getAllMadridClients());
-// console.log(await getClientsAndEmployeesNames());  Ejercicio 17
+// console.log(await getClientsAndEmployeesNames());  //Ejercicio 17
 // console.log(await getAllStatus());
 // console.log(await getAllLateOrder());
 // console.log(await getAllRequestTwoDaysBefore());
