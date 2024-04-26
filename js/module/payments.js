@@ -40,7 +40,8 @@ export const getAll2008Payments = async (year) => {
             filtreCode.add(val.code_client)
             dataUpdate.push({
                 code_client: val.code_client,
-                total: val.total
+                total: val.total,
+                year: val.date_payment
             })
         }
     })
