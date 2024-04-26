@@ -60,4 +60,26 @@ export const getAllRequestTwoDaysBefore = async () => {
         }
     })
     return dataUpdate;
-}   
+}
+
+
+// Devuelve un listado de todos los pedidos que fueron rechazados en 2009.
+
+export const getAllRejectedOrder = async(year) => {
+    let res = await fetch("http://localhost:5508/requests?status=Rechazado");
+    let data = await res.json();
+    //let fecha = new Date(year)
+    let dataUpdate = [];
+    data.forEach(val => {
+        if (val.status == "Rechazado" && val.date_request.split("-")[0] == year){   //val.date_request == fecha // val.date_request.split("-")[0] // .getFullYear()
+            dataUpdate.push({
+                Codigo_pedido: val.code_request,
+                Fecha_pedido: val.date_request,
+                Fecha_esperada: val.date_wait,
+                Comentario: val.comment,
+                Codigo_cliente: val.code_client,
+            })
+        }
+    })
+    return dataUpdate
+}
