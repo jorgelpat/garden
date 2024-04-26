@@ -83,3 +83,24 @@ export const getAllRejectedOrder = async(year) => {
     })
     return dataUpdate
 }
+
+// Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
+
+export const getAllOrdersDeliveredInJanuary = async() => {
+    let res = await fetch("http://localhost:5508/requests?status=Entregado");
+    let data = await res.json();
+    let dataUpdate = [];
+    data.forEach(val =>{
+        if (val.date_request.split("-")[1] == "01"){
+            dataUpdate.push({
+                Codigo_pedido: val.code_request,
+                Fecha_pedido: val.date_request,
+                Fecha_esperada: val.date_wait,
+                Comentario: val.comment,
+                Codigo_cliente: val.code_client
+            })
+        }
+    })
+    return dataUpdate;
+}
+
