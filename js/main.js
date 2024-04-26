@@ -5,4 +5,4 @@ import {getAllStatus} from "./module/requests.js";
 import {getAll2008Payments} from "./module/payments.js";
 
 
-console.log(await getAll2008Payments());
+console.log(await getAll2008Payments(2008));
