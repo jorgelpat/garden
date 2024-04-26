@@ -24,10 +24,10 @@ export const getAllLateOrder = async () => {
         let dateDelivery = new Date(val.date_delivery);
         if (dateDelivery > dateWait) {
             dataUpdate.push({
-                Codigo_del_pedido: val.code_request,
-                Codigo_del_cliente: val.code_client,
-                Fecha_de_esperada: val.date_wait,
-                Fecha_de_entrega: val.date_delivery,
+                Codigo_pedido: val.code_request,
+                Codigo_cliente: val.code_client,
+                Fecha_esperada: val.date_wait,
+                Fecha_entregada: val.date_delivery,
             })
         }
     })
