@@ -13,7 +13,7 @@
     
 // }
 
-// export const getAll2008Payments = async() => {
+// export const getAllPaymentsbyYear = async() => {
 //     let res = await fetch("http://localhost:5505/requests")
 //     let data = await res.json()
 //     let dataUpdate =[]
@@ -30,8 +30,8 @@
 
 // In construction
 
-export const getAll2008Payments = async (year) => {
-    let res = await fetch("http://localhost:5505/payments?payment=PayPal")
+export const getAllPaymentsbyYear = async (year) => {
+    let res = await fetch("http://localhost:5505/payments")
     let data = await res.json();
     let dataUpdate = [];
     let filtreCode = new Set();
@@ -45,6 +45,38 @@ export const getAll2008Payments = async (year) => {
             })
         }
     })
-    dataUpdate = [... new Set(dataUpdate)]
+    //dataUpdate = [... new Set(dataUpdate)]
+    return dataUpdate
+}
+
+// Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal. Ordene el resultado de mayor a menor.
+
+export const getAllPymentType = async (year) => {
+    let res = await fetch("http://localhost:5505/payments?payment=PayPal")
+    let data = await res.json();
+    let dataUpdate = [];
+    data.forEach(val => {
+        if (val.date_payment?.split('-')[0] == year) {
+            dataUpdate.push({
+                code_client: val.code_client,
+                total: val.total,
+                year: val.date_payment,
+                tipo_de_pago: val.payment
+            })
+        }
+    })
     return dataUpdate.sort((a, b) => b-a)
+}
+
+// Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. Tenga en cuenta que no deben aparecer formas de pago repetidas.
+
+export const getAllPayment = async()=>{
+    let res = await fetch("http://localhost:5505/payments")
+    let data =await res.json();
+    let dataUpdate = new Set(); //Se garantiza que no hayan datos duplicados
+    data.forEach(val =>{
+        let {payment} = val
+        dataUpdate.add(payment)
+    })
+    return dataUpdate;
 }
