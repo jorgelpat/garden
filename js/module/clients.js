@@ -1,3 +1,7 @@
+import { getEmployByCode } from "./employees.js";
+import { getOfficesByCode } from "./offices.js";
+
+
 // Devuelve un listado con el nombre de los todos los clientes españoles.
 
 export const getAllSpainClients = async()=>{
@@ -93,8 +97,20 @@ export const getClientsAndEmployeesNames = async() =>{
         dataUpdate.name_employee = `${name} ${lastname1} ${lastname2}`
         clients[i] = dataUpdate
     }
+    // [
+    //     {
+    //         city: "San Francisco"
+    //         client_name : "GoldFish Garden"
+    //         name_employee: "Walter Santiago Sanchez Lopez"
+    //     }
+    // ]
     return clients;
 }
+
+
+
+
+
 //2. Muestra el nombre de los clientes que hayan realizado pagos junto con el nombre de sus representantes de ventas.
 export const getClientsWhoMadePayment = async () => {
     let res = await fetch("http://localhost:5501/clients");
