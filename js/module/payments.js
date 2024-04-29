@@ -26,8 +26,6 @@
 //     })
 //     return dataUpdate;
 // }
-
-
 // In construction
 
 export const getAllPaymentsbyYear = async (year) => {
