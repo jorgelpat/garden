@@ -47,3 +47,29 @@ export const getAllFullNameNoSale = async()=>{
     });
     return dataUpdate;
 }
+
+
+// Obtener la informacion de un empleado por su codigo
+export const getEmployByCode = async(code) =>{
+    let res = await fetch(`http://localhost:5502/employees?employee_code=${code}`);
+    let dataClients = await res.json();
+    return dataClients;
+}
+
+
+
+
+    // export const getEmployeesSaleAgent = async () => {
+    //     let res = await fetch("http://localhost:5502/employees?position=Representante%20Ventas")
+    //     let data = await res.json()
+    //     let dataUpdate = []
+    //     data.forEach(val => {
+    //         dataUpdate.push({
+    //             codigoEmpleado: val.employee_code,
+    //             nombre: val.name,
+    //             apellidos: `${val.lastname1} ${val.lastname2}`,
+    //             code_office: val.code_office
+    //         })
+    //     })
+    //     return dataUpdate
+    // }
