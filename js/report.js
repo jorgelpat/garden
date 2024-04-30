@@ -154,3 +154,32 @@ queryAboutTable4.addEventListener("click", async (e) => {
         report__container.innerHTML = plantilla;
     }
 })
+
+const queryAboutTable5 = document.querySelector("#queryAboutTable5");   //Falta solucionar
+queryAboutTable5.addEventListener("click", async (e) => {
+    let [, report__container] = queryAboutTable5.children
+    if (!report__container.innerHTML) {
+        let data = await getAllFullNameNoSale();
+        let plantilla = "";
+        console.log(data);
+        var i = 1
+        data.forEach(val => {
+            plantilla += `  
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre: </b>${val.name}</p>
+                        <p><b>Apellidos: </b>${val.lastname1} ${val.lastname2}</p>
+                        <p><b>Puesto: </b>${val.position}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i += 1
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
