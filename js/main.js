@@ -1,12 +1,17 @@
 import {getAllOfficesCodeAndCity,getAllOficesFromSpainCityAndMovil}from "./module/offices.js"
-import {getAllEmployeesWithBossAndCodeSeven,getBossFullNameAndEmail,getAllFullNameNoSale} from "./module/employees.js";
-import {getAllSpainClients,getAllMadridClients,getClientsAndEmployeesNames} from "./module/clients.js";
-import {getAllStatusRequest,getAllLateOrder,getAllRequestTwoDaysBefore,getAllRejectedOrder,getAllOrdersDeliveredInJanuary} from "./module/requests.js";
+import {getAllEmployeesWithBossAndCodeSeven,getBossFullNameAndEmail,
+    getAllFullNameNoSale} from "./module/employees.js";
+import {getAllSpainClients,getAllMadridClients,getClientsAndEmployeesNames,
+    getClientsWhoMadePayment, getClientsNoPayment, 
+    getClientsWhoMadePaymentsCityAndEmployees,getClientsWhoHaventMadePaymentsAndTheyCity,
+    getOfficeAddressOfClientsFromFuenlabrada} from "./module/clients.js";
+import {getAllStatusRequest,getAllLateOrder,getAllRequestTwoDaysBefore,
+    getAllRejectedOrder,getAllOrdersDeliveredInJanuary} from "./module/requests.js";
 import {getAllPaymentsbyYear,getAllPymentType,getAllPayment} from "./module/payments.js";
 import {getAllGammaOrnamentalesProduct} from "./module/products.js"
 
 
-// ----------------Consulta sobre una tabla
+// ----------------Consulta sobre una tabla--------------------------
 // console.log(await getAllOfficesCodeAndCity());                   // 1 
 // console.log(await getAllOficesFromSpainCityAndMovil());          // 2
 // console.log(await getAllEmployeesWithBossAndCodeSeven());        // 3
@@ -25,5 +30,14 @@ import {getAllGammaOrnamentalesProduct} from "./module/products.js"
 // console.log(await getAllMadridClients());                        // 16
 
 
-// ----------------CONSULTA MULTITABLA "COMPOSICION INTERNA"------------------------
-console.log(await getClientsAndEmployeesNames());                   // 1
+// ----------------CONSULTA MULTITABLA "COMPOSICION INTERNA"----------------------
+// console.log(await getClientsAndEmployeesNames());                // 1
+// console.log(await getClientsWhoMadePayment());                   // 2
+// console.log(await getClientsNoPayment());                        // 3
+// console.log(await getClientsWhoMadePaymentsCityAndEmployees());  // 4
+// console.log(await getClientsWhoHaventMadePaymentsAndTheyCity()); // 5
+
+
+
+
+

@@ -78,3 +78,9 @@ export const getAllPayment = async()=>{
     })
     return dataUpdate;
 }
+
+export const getPaymentByClientCode = async (clientCode) => {
+    let res = await fetch(`http://localhost:5505/payments?code_client=${clientCode}`);
+    let data = await res.json();
+    return data;
+}
