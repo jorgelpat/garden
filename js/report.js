@@ -113,8 +113,8 @@ queryAboutTable3.addEventListener("click", async (e) => {
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
-                        <p><b>Nombre: </b>${val.name}</p>
-                        <p><b>Apellidos: </b>${val.lastname1} ${val.lastname2}</p>
+                        <p><b>Nombre: </b>${val.nombre}</p>
+                        <p><b>Apellidos: </b>${val.apellidos}</p>
                         <p><b>Email: </b>${val.email}</p>
                     </div>
                 </div>
