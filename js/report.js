@@ -211,3 +211,29 @@ queryAboutTable6.addEventListener("click", async (e) => {
         report__container.innerHTML = plantilla;
     }
 });
+
+const queryAboutTable7 = document.querySelector("#queryAboutTable7");   //Falta solucionar
+queryAboutTable7.addEventListener("click", async (e) =>{
+    let [,report__container] = queryAboutTable7.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllStatusRequest();
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val => {
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Estado: </b>${val.status}</p>
+                        <p><b>Pais: </b>${val.pais}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        })
+    }
+})
