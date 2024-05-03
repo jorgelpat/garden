@@ -212,7 +212,7 @@ queryAboutTable6.addEventListener("click", async (e) => {
     }
 });
 
-const queryAboutTable7 = document.querySelector("#queryAboutTable7");   //Falta solucionar
+const queryAboutTable7 = document.querySelector("#queryAboutTable7");
 queryAboutTable7.addEventListener("click", async (e) =>{
     let [,report__container] = queryAboutTable7.children;
     if (!report__container.innerHTML) {
@@ -229,6 +229,36 @@ queryAboutTable7.addEventListener("click", async (e) =>{
                 <div class="card__body">
                     <div class="body__marck">
                         <p><b>Estado: </b>${val}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        })
+        report__container.innerHTML = plantilla;
+    }
+})
+
+
+const queryAboutTable8 = document.querySelector("#queryAboutTable8");
+queryAboutTable8.addEventListener("click", async(e) =>{
+    let [,report__container] = queryAboutTable8.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllPaymentsbyYear(2008);
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val =>{
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Código: </b>${val.code_client}</p>
+                        <p><b>Total: </b>${val.total}</p>
+                        <p><b>Fecha: </b>${val.year}</p>
                     </div>
                 </div>
             </div>
