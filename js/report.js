@@ -39,13 +39,13 @@ import {getAllGammaOrnamentalesProduct} from "./module/products.js"
 
 
 const queryAboutTable1 = document.querySelector("#queryAboutTable1");
-queryAboutTable1.addEventListener("click", async (e) => {
+queryAboutTable1.addEventListener("click", async(e) => {
     let [, report__container] = queryAboutTable1.children
     if (!report__container.innerHTML) {
         let data = await getAllOfficesCodeAndCity();
         let plantilla = "";
         console.log(data);
-        var i = 1
+        var i = 1;
         data.forEach(val => {
             plantilla += `  
                 <div class="report__card">
@@ -60,11 +60,11 @@ queryAboutTable1.addEventListener("click", async (e) => {
                 </div>
             </div>
             `;
-            i += 1
+            i += 1;
         });
         report__container.innerHTML = plantilla;
-    }
-})
+    };
+});
 
 const queryAboutTable2 = document.querySelector("#queryAboutTable2");
 queryAboutTable2.addEventListener("click", async (e) => {
@@ -133,7 +133,7 @@ queryAboutTable4.addEventListener("click", async (e) => {
         let data = await getBossFullNameAndEmail();
         let plantilla = "";
         console.log(data);
-        var i = 1
+        var i = 1;
         data.forEach(val => {
             plantilla += `  
                 <div class="report__card">
@@ -149,11 +149,11 @@ queryAboutTable4.addEventListener("click", async (e) => {
                 </div>
             </div>
             `;
-            i += 1
+            i += 1;
         });
         report__container.innerHTML = plantilla;
-    }
-})
+    };
+});
 
 const queryAboutTable5 = document.querySelector("#queryAboutTable5");
 queryAboutTable5.addEventListener("click", async (e) => {

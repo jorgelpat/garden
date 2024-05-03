@@ -1,4 +1,4 @@
-// Devuelve un listado con el nombre, apeelidos e email de los empleados cuyo jefe tiene un código
+//3. Devuelve un listado con el nombre, apellidos e email de los empleados cuyo jefe tiene un código
  export const getAllEmployeesWithBossAndCodeSeven = async() =>{
     let res = await fetch("http://localhost:5502/employees?code_boss=7")
     let data = await res.json();
@@ -16,17 +16,22 @@
  }
 
 
- //devuelve el nombre del puesto, nombre, apellidos y email corporativo del jefe
+ //4. devuelve el nombre del puesto, nombre, apellidos y email corporativo del jefe
 
  export const getBossFullNameAndEmail = async()=>{
     let res = await fetch("http://localhost:5502/employees");
     let data = await res.json();
-    let dataUpdate = {};
+    let dataUpdate = [];
     data.forEach(val => {
         if(val.code_boss == null){
-            dataUpdate.nombre = val.name
-            dataUpdate.apellidos = `${val.lastname1} ${val.lastname2}`
-            dataUpdate.email = val.email.match(/(?<=\[)[^\[\]]+@[^@\[\]]+(?=\])/)[0]
+            dataUpdate.push({
+                nombre: val.name,
+                apellidos: `${val.lastname1} ${val.lastname2}`,
+                email: val.email.match(/(?<=\[)[^\[\]]+@[^@\[\]]+(?=\])/)[0]
+            });
+            // dataUpdate.nombre = val.name
+            // dataUpdate.apellidos = `${val.lastname1} ${val.lastname2}`
+            // dataUpdate.email = val.email.match(/(?<=\[)[^\[\]]+@[^@\[\]]+(?=\])/)[0]
         }
     });
     return dataUpdate;
