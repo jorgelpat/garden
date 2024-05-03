@@ -228,12 +228,13 @@ queryAboutTable7.addEventListener("click", async (e) =>{
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
-                        <p><b>Estado: </b>${val.status}</p>
-                        <p><b>Pais: </b>${val.pais}</p>
+                        <p><b>Estado: </b>${val}</p>
                     </div>
                 </div>
             </div>
             `;
+            i+= 1;
         })
+        report__container.innerHTML = plantilla;
     }
 })

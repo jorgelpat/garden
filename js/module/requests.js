@@ -6,9 +6,11 @@ export const getAllStatusRequest = async()=>{
     let data =await res.json();
     let dataUpdate = new Set(); //Se garantiza que no hayan datos duplicados
     data.forEach(val =>{
-        let {status} = val
-        dataUpdate.add(status)
+        // let {status} = val
+        dataUpdate.add(val.status)
+
     })
+    // dataUpdate = [... new Set(dataUpdate)]
     return dataUpdate;
 }
 
