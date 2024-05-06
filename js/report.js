@@ -294,7 +294,38 @@ queryAboutTable9.addEventListener("click", async(e) =>{
             </div>
             `;
             i+= 1;
-        })
+        });
         report__container.innerHTML = plantilla;
-    }
-})
+    };
+});
+
+
+const queryAboutTable10 = document.querySelector("#queryAboutTable10");
+queryAboutTable10.addEventListener("click", async(e) =>{
+    let [,report__container] = queryAboutTable10.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllRequestTwoDaysBefore();
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val =>{
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Código Pedido: </b>${val.Codigo_pedido}</p>
+                        <p><b>Código Cliente: </b>${val.Codigo_cliente}</p>
+                        <p><b>Fecha Esperada: </b>${val.Fecha_esperada}</p>
+                        <p><b>Fecha Entregada: </b>${val.Fecha_entregada}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        });
+        report__container.innerHTML = plantilla;
+    };
+});
