@@ -424,3 +424,31 @@ queryAboutTable13.addEventListener("click", async(e) =>{
         report__container.innerHTML = plantilla;
     };
 });
+
+
+const queryAboutTable14 = document.querySelector("#queryAboutTable14");
+queryAboutTable14.addEventListener("click", async (e) =>{
+    let [,report__container] = queryAboutTable14.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllPayment();
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val => {
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Estado: </b>${val}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        })
+        report__container.innerHTML = plantilla;
+    }
+})

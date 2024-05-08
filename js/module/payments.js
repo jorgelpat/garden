@@ -73,8 +73,8 @@ export const getAllPayment = async()=>{
     let data =await res.json();
     let dataUpdate = new Set(); //Se garantiza que no hayan datos duplicados
     data.forEach(val =>{
-        let {payment} = val
-        dataUpdate.add(payment)
+        // let {payment} = val
+        dataUpdate.add(val.payment)
     })
     return dataUpdate;
 }

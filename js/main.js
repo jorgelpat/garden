@@ -25,7 +25,7 @@ import {getAllGammaOrnamentalesProduct} from "./module/products.js"
 // console.log(await getAllRejectedOrder(2009));                    // 11
 // console.log(await getAllOrdersDeliveredInJanuary());             // 12
 // console.log(await getAllPymentType(2008));                       // 13
-// console.log(await getAllPayment());                              // 14
+console.log(await getAllPayment());                              // 14
 // console.log(await getAllGammaOrnamentalesProduct());             // 15
 // console.log(await getAllMadridClients());                        // 16
 
