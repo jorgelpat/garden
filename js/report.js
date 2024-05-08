@@ -329,3 +329,98 @@ queryAboutTable10.addEventListener("click", async(e) =>{
         report__container.innerHTML = plantilla;
     };
 });
+
+
+const queryAboutTable11 = document.querySelector("#queryAboutTable11");
+queryAboutTable11.addEventListener("click", async(e) =>{
+    let [,report__container] = queryAboutTable11.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllRejectedOrder(2009);
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val =>{
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Código Pedido: </b>${val.Codigo_pedido}</p>
+                        <p><b>Fecha Pedido: </b>${val.Fecha_pedido}</p>
+                        <p><b>Fecha Esperada: </b>${val.Fecha_esperada}</p>
+                        <p><b>Comentario: </b>${val.Comentario}</p>
+                        <p><b>Codigo Cliente: </b>${val.Codigo_cliente}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        });
+        report__container.innerHTML = plantilla;
+    };
+});
+
+
+const queryAboutTable12 = document.querySelector("#queryAboutTable12");
+queryAboutTable12.addEventListener("click", async(e) =>{
+    let [,report__container] = queryAboutTable12.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllOrdersDeliveredInJanuary();
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val =>{
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Código Pedido: </b>${val.Codigo_pedido}</p>
+                        <p><b>Fecha Pedido: </b>${val.Fecha_pedido}</p>
+                        <p><b>Fecha Esperada: </b>${val.Fecha_esperada}</p>
+                        <p><b>Comentario: </b>${val.Comentario}</p>
+                        <p><b>Codigo Cliente: </b>${val.Codigo_cliente}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        });
+        report__container.innerHTML = plantilla;
+    };
+});
+
+
+const queryAboutTable13 = document.querySelector("#queryAboutTable13");
+queryAboutTable13.addEventListener("click", async(e) =>{
+    let [,report__container] = queryAboutTable13.children;
+    if (!report__container.innerHTML) {
+        let data = await getAllPymentType(2008);
+        let plantilla = "";
+        console.log(data);
+        var i = 1;
+        data.forEach(val =>{
+            plantilla += `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Reporte ${i}</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo Cliente: </b>${val.code_client}</p>
+                        <p><b>Total: </b>${val.total}</p>
+                        <p><b>Año: </b>${val.year}</p>
+                        <p><b>Tipo de Pago: </b>${val.tipo_de_pago}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+            i+= 1;
+        });
+        report__container.innerHTML = plantilla;
+    };
+});
